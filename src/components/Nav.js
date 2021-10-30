@@ -60,7 +60,7 @@ const Navigation =(props)=> {
                   Profile
                   </span>
                 </Link>
-  const logout = 'Logout'
+
 
   return(
 
@@ -111,9 +111,13 @@ const Navigation =(props)=> {
               {profile}
             </li>
 
-            <li>
-              {logout}
-            </li>
+            {props.isLoggedIn ? <li onClick={()=> {
+                                        props.logout()
+                                        toggleDropDown()
+                                        spinHamburger()
+                                      }}>
+                                        Logout
+                                      </li> : ''}
 
           </ul>
         </div>
