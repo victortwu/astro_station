@@ -1,0 +1,151 @@
+/* testing... testing... */
+
+/* ========== NAVIGATION ========= */
+
+.navBar {
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 1s;
+}
+
+.logoCnt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appLogo {
+  width: 7rem;
+  height: 4rem;
+  margin-top: 1rem;;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: white;
+}
+
+.showMenu {
+  position: absolute;
+  top: 4rem;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+
+}
+
+.hideMenu {
+  display: none;
+}
+
+.menuBody {
+  position: absolute;
+  padding: .2rem;
+  background-color: var(--dkGray);
+  top: 0;
+  right: 1rem;
+  width: 12rem;
+  border-radius: .2rem;
+  box-shadow: 0 0 1rem gray;
+  animation: dropMenu .5s;
+  z-index: 101;
+}
+
+.links {
+  height: 100%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#navLink {
+  text-decoration: none;
+  color: white;
+}
+
+.links > li {
+  list-style: none;
+  text-align: left;
+  padding: .5rem;
+  color: var(--moonGray);
+}
+
+
+
+.hamburger {
+  position: absolute;
+  width: 1.7rem;
+  height: 1.2rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+#hamburgerLine {
+  background-color: var(--moonGray);
+  width: 100%;
+  height: 2px;
+  border-radius: 2rem;
+}
+
+#xLine1, #xLine2{
+  position: absolute;
+  bottom: .7rem;
+  max-height: inherit;
+  background-color: var(--moonGray);
+  width: 100%;
+  height: 2px;
+  border-radius: 2rem;
+
+}
+
+#xLine1 {
+  transform: rotateZ(45deg);
+}
+
+#xLine2 {
+  transform: rotateZ(-45deg);
+}
+
+
+/* ========= ANIMATION RULES ========= */
+
+
+/* For hamburger drop down */
+
+@keyframes spinX {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
+}
+
+@keyframes spinE {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
+}
+
+/* For menu links */
+
+@keyframes dropMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
