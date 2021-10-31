@@ -1,4 +1,11 @@
-const Astronauts = () => {
+import { Redirect } from 'react-router-dom'
+
+const Astronauts = (props) => {
+
+  if (!props.isLoggedIn) {
+    return <Redirect to='/'/>
+  }
+
   return(
     <div>
       astronauts
@@ -6,4 +13,4 @@ const Astronauts = () => {
   )
 }
 
-export default Astronauts 
+export default Astronauts

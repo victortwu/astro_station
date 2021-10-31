@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { GoogleLogin } from 'react-google-login'
-//import {  } from 'gapi-script'
 import { gapi, loadAuth2 } from 'gapi-script'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -9,6 +8,7 @@ import Nav from './components/Nav'
 import Astronauts from './pages/Astronauts'
 import IssLocation from './pages/IssLocation'
 import LoginPage from './pages/LoginPage'
+import Profile from './pages/Profile'
 
 import './App.css';
 
@@ -27,12 +27,9 @@ const [isLoggedIn, setIsLoggedIn] = useState(false)
 const [userProfile, setUserProfile] = useState(null)
 
   const responseGoogle = (res) => {
-    console.log(res)
-    console.log(res.profileObj.email)
     if (res.profileObj.email !== '') {
       setIsLoggedIn(true)
       setUserProfile(res.profileObj)
-      console.log(`${res.profileObj.givenName} is logged in`)
     }
   }
 
@@ -57,13 +54,13 @@ console.log(userProfile)
     <Router>
 
       <div className="App">
-
-      <Nav
-        logout={logout}
-        isLoggedIn={isLoggedIn}
-        userProfile={userProfile}
-      />
-
+        <header>
+          <Nav
+            logout={logout}
+            isLoggedIn={isLoggedIn}
+            userProfile={userProfile}
+          />
+        </header>
         <Switch>
 
             <Route exact path='/'>
@@ -82,15 +79,21 @@ console.log(userProfile)
             </Route>
 
             <Route exact path='/astronauts'>
-              <div className='mainWrapper'>
-                  <Astronauts/>
-              </div>
+                <div className='mainWrapper'>
+                  <Astronauts isLoggedIn={isLoggedIn}/>
+                </div>
             </Route>
 
             <Route exact path='/isslocation'>
-            <div className='mainWrapper'>
-                <IssLocation/>
-            </div>
+              <div className='mainWrapper'>
+                  <IssLocation isLoggedIn={isLoggedIn}/>
+              </div>
+            </Route>
+
+            <Route exact path='/profile'>
+              <div className='mainWrapper'>
+                  <Profile isLoggedIn={isLoggedIn} userProfile={userProfile} />
+              </div>
             </Route>
 
         </Switch>
