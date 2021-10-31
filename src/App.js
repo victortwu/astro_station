@@ -58,21 +58,27 @@ console.log(userProfile)
 
       <div className="App">
 
-      <Nav logout={logout} isLoggedIn={isLoggedIn}/>
+      <Nav
+        logout={logout}
+        isLoggedIn={isLoggedIn}
+        userProfile={userProfile}
+      />
 
         <Switch>
 
             <Route exact path='/'>
-            <div className='mainWrapper'>
-                {isLoggedIn ? 'HOME' : <LoginPage>
-                                          <GoogleLogin
-                                            buttonText="Login"
-                                             onSuccess={responseGoogle}
-                                             onFailure={responseGoogle}
-                                             cookiePolicy={'single_host_origin'}
-                                            />
-                                          </LoginPage>}
-            </div>
+
+                {isLoggedIn ? <div className='mainWrapper'>HOME</div>
+
+                :  <LoginPage>
+                    <GoogleLogin
+                          buttonText="Login"
+                          onSuccess={responseGoogle}
+                          onFailure={responseGoogle}
+                          cookiePolicy={'single_host_origin'}
+                        />
+                    </LoginPage>}
+
             </Route>
 
             <Route exact path='/astronauts'>

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../styleSheets/nav.css'
 
-const Navigation =(props)=> {
+const Nav = props => {
 
   const [dropLinks, setDropLinks] = useState(false)
   const hamburgerButton = useRef(null)
@@ -61,13 +61,13 @@ const Navigation =(props)=> {
                   </span>
                 </Link>
 
-
+console.log(props.userProfile?.givenName)
   return(
 
     <>
     <nav className='navBar'>
 
-
+      <h4 className='welcomeName'>Welcome {props.userProfile?.givenName}</h4>
 
       <div ref={hamburgerButton} className='hamburger' onClick={()=> {
         toggleDropDown()
@@ -94,30 +94,18 @@ const Navigation =(props)=> {
         <div onClick={(e)=> e.stopPropagation()} className='menuBody'>
           <ul className='links'>
 
+              <li>{home}</li>
+              <li>{astroLink}</li>
+              <li>{issLink}</li>
+              <li>{profile}</li>
 
-            <li>
-              {home}
-            </li>
-
-            <li>
-              {astroLink}
-            </li>
-
-            <li>
-              {issLink}
-            </li>
-
-            <li>
-              {profile}
-            </li>
-
-            {props.isLoggedIn ? <li onClick={()=> {
+              {props.isLoggedIn ? <li><span onClick={()=> {
                                         props.logout()
                                         toggleDropDown()
                                         spinHamburger()
                                       }}>
                                         Logout
-                                      </li> : ''}
+                                      </span></li> : ''}
 
           </ul>
         </div>
@@ -127,4 +115,4 @@ const Navigation =(props)=> {
   )
 }
 
-export default Navigation
+export default Nav

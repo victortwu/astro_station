@@ -6,27 +6,18 @@
   position: relative;
   padding-left: 1rem;
   padding-right: 1rem;
-
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   animation: fadeIn 1s;
 }
 
-.logoCnt {
+.welcomeName {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.appLogo {
-  width: 7rem;
-  height: 4rem;
-  margin-top: 1rem;;
-  background-repeat: no-repeat;
-  background-size: contain;
-  color: white;
 }
 
 .showMenu {
@@ -116,6 +107,9 @@
   transform: rotateZ(-45deg);
 }
 
+a {
+  text-decoration: none;
+}
 
 /* ========= ANIMATION RULES ========= */
 

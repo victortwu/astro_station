@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   margin: 0;
   box-sizing: border-box;
   color: var(--moonGray);
+  font-family: 'Roboto', sans-serif;
 }
 
 
