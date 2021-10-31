@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { GoogleLogin } from 'react-google-login'
 import { gapi, loadAuth2 } from 'gapi-script'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
@@ -24,6 +24,7 @@ function App() {
 
 const [isLoggedIn, setIsLoggedIn] = useState(false)
 const [userProfile, setUserProfile] = useState(null)
+const [astronauts, setAstronauts] = useState([])
 
   const responseGoogle = (res) => {
     if (res.profileObj.email !== '') {
@@ -47,7 +48,18 @@ const [userProfile, setUserProfile] = useState(null)
      }
   }
 
+  useEffect(async()=> {
+    try {
+      const res = await fetch('http://api.open-notify.org/astros.json')
+      const data = await res.json()
+      setAstronauts(data.people)
+    }
+    catch(err) {
+      console.error(err.message)
+    }
+  }, [])
 
+console.log(astronauts)
   return (
     <Router>
 
@@ -78,7 +90,7 @@ const [userProfile, setUserProfile] = useState(null)
 
             <Route exact path='/astronauts'>
                 <div className='mainWrapper'>
-                  <Astronauts isLoggedIn={isLoggedIn}/>
+                  <Astronauts astronauts={astronauts} isLoggedIn={isLoggedIn}/>
                 </div>
             </Route>
 
