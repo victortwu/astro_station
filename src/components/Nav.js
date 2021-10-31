@@ -11,7 +11,7 @@ const Nav = props => {
     hamburgerButton.current.style = dropLinks ? 'animation: spinX .5s' : 'animation: spinE .5s'
   }
 
-  const toggleDropDown =(e)=> {
+  const toggleDropDown = () => {
       setDropLinks(!dropLinks)
   }
 

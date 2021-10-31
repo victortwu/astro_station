@@ -5,16 +5,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 //-------- components and pages ---------------
 import Nav from './components/Nav'
+import Profile from './components/Profile'
 import Astronauts from './pages/Astronauts'
 import IssLocation from './pages/IssLocation'
 import LoginPage from './pages/LoginPage'
-import Profile from './pages/Profile'
+import ProfilePage from './pages/ProfilePage'
 
 import './App.css';
 
-
-
-const clientId = '187245118795-1getsroidb7817bb2b086kk1lu308umq.apps.googleusercontent.com'
+const clientId = process.env.REACT_APP_CLIENTKEY
 
 
 
@@ -92,7 +91,9 @@ console.log(userProfile)
 
             <Route exact path='/profile'>
               <div className='mainWrapper'>
+                <ProfilePage isLoggedIn={isLoggedIn}>
                   <Profile isLoggedIn={isLoggedIn} userProfile={userProfile} />
+                </ProfilePage>
               </div>
             </Route>
 
