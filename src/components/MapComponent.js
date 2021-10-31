@@ -12,8 +12,7 @@ const icon = new Icon({
   iconSize: [45, 45]
 })
 
-
-useEffect(async()=> {
+const getLocation = async() => {
   try {
     const res = await fetch('http://api.open-notify.org/iss-now.json')
     const data = await res.json()
@@ -35,7 +34,16 @@ useEffect(async()=> {
   catch(err) {
     console.error(err.message)
   }
+  moveIss()
+}
 
+const moveIss = () => {
+  setTimeout(getLocation(), 5000)
+}
+
+
+useEffect(()=> {
+  getLocation()
 }, [])
 
 
