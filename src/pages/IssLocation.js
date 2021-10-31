@@ -1,4 +1,5 @@
 import { Redirect } from 'react-router-dom'
+import MapComponent from '../components/MapComponent'
 
 const IssLocation = (props) => {
 
@@ -8,7 +9,7 @@ const IssLocation = (props) => {
 
   return(
     <div>
-      Iss Location
+      <MapComponent/>
     </div>
   )
 }

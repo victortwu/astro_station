@@ -47,8 +47,7 @@ const [userProfile, setUserProfile] = useState(null)
      }
   }
 
-console.log(isLoggedIn)
-console.log(userProfile)
+
   return (
     <Router>
 
@@ -84,9 +83,9 @@ console.log(userProfile)
             </Route>
 
             <Route exact path='/isslocation'>
-              <div className='mainWrapper'>
+                <div className='mainWrapper'>
                   <IssLocation isLoggedIn={isLoggedIn}/>
-              </div>
+                </div>
             </Route>
 
             <Route exact path='/profile'>

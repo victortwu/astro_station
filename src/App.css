@@ -11,3 +11,9 @@
   height: 100%;
   z-index: 2
 }
+
+.leaflet-container {
+  text-align: center;
+  width: 85vw;
+  height: 60vw;
+}
