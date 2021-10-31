@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GoogleLogin } from 'react-google-login'
 import { gapi, loadAuth2 } from 'gapi-script'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 //-------- components and pages ---------------
 import Nav from './components/Nav'
@@ -95,6 +95,8 @@ const [userProfile, setUserProfile] = useState(null)
                 </ProfilePage>
               </div>
             </Route>
+
+            <Route render={() => <Redirect to={{pathname: "/"}} />} />
 
         </Switch>
 
