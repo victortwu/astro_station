@@ -6,22 +6,36 @@
   animation: fadeIn 1.5s;
 }
 
-.name {
+.nameCnt, .craftCnt {
   position: absolute;
-  height: 51%;
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+.name, .nameCnt {
+  position: absolute;
+  padding: 1rem;
+  background-color: rgba(255,255,255,.02);
+  height: 50%;
   top: 0;
   left: 0;
   right: 0;
-  border: solid blue;
+  /* border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem; */
+  border-radius: .2rem;
 }
 
-.craft {
+.craft, .craftCnt {
   position: absolute;
-  height: 51%;
+  padding: 1rem;
+  background-color: rgba(255,255,255,.02);
+  height: 50%;
   bottom: 0;
   left: 0;
   right: 0;
   opacity: 0;
+  border-bottom-left-radius: .2rem;
+  border-bottom-right-radius: .2rem;
 }
 
 .upBtn {
@@ -29,14 +43,14 @@
   bottom: .5rem;
   right: .5rem;
   transform: rotateX(.5turn);
-  z-index: 1;
+  z-index: 2;
 }
 
 .dnBtn {
   position: absolute;
   bottom: .5rem;
   right: .5rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 .craftDown {

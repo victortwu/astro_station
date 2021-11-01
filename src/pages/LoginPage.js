@@ -15,6 +15,7 @@ const LoginPage = ({children}) => {
     right: '2rem',
     left: '2rem',
     bottom: '2rem',
+    height: '100vh',
     backgroundColor: 'rgba(255, 255, 255, .1)',
     display: 'flex',
     flexDirection: 'column',
