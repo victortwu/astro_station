@@ -71,6 +71,9 @@ console.log(astronauts)
             userProfile={userProfile}
           />
         </header>
+
+        <div className='galaxy'/>
+
         <Switch>
 
             <Route exact path='/'>

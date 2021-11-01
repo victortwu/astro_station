@@ -1,8 +1,21 @@
 .App {
   position: relative;
-  background-color: var(--dkGray);
+  background-image: linear-gradient(var(--dkGray), black);
   width: 100%;
   height: 100vh;
+}
+
+.galaxy {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+
+  background-image: url('./assets/galaxy.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 85vw;
+  height: 85vw;
+  animation: rotate 300s linear infinite;
 }
 
 .mainWrapper {
@@ -13,7 +26,13 @@
 }
 
 .leaflet-container {
-  text-align: center;
   width: 85vw;
   height: 60vw;
+  border-radius: .5rem;
+  border: solid var(--dkMagenta)
+}
+
+@keyframes rotate {
+  0% {transform: rotateZ(0)}
+  100% {transform: rotateZ(360deg)}
 }

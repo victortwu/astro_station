@@ -3,54 +3,65 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import '../App.css'
 
+
 const MapComponent = () => {
 
-const [mapState, setMapState] = useState(null)
+  const [latitude, setLatitude] = useState(0)
+  const [longitude, setLongitude] = useState(0)
 
-const icon = new Icon({
-  iconUrl: '/pikachu.png',
-  iconSize: [45, 45]
-})
+  const icon = new Icon({
+    iconUrl: '/ISSicon copy 2.svg',
+    iconSize: [55, 55]
+  })
 
-const getLocation = async() => {
-  try {
-    const res = await fetch('http://api.open-notify.org/iss-now.json')
-    const data = await res.json()
+    const getLocation = async() => {
+      try {
+        const res = await fetch('http://api.open-notify.org/iss-now.json')
+        const data = await res.json()
 
-    const lat = parseFloat(data.iss_position.latitude)
-    const long = parseFloat(data.iss_position.longitude)
+        const latStr = await parseFloat(data.iss_position.latitude).toFixed(4)
+        const longStr = await parseFloat(data.iss_position.longitude).toFixed(4)
 
-    setMapState(
-    <Map center={[lat, long]} zoom={2}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={[parseInt(data.iss_position.latitude), parseInt(data.iss_position.longitude)]} icon={icon}/>
-    </Map>
-    )
+        const lat = parseFloat(latStr)
+        const long = parseFloat(longStr)
 
-  }
-  catch(err) {
-    console.error(err.message)
-  }
-  moveIss()
-}
+        setLatitude(lat)
 
-const moveIss = () => {
-  setTimeout(getLocation(), 5000)
-}
+        setLongitude(long)
+
+        moveIss()
+      }
+      catch(err) {
+        console.log('CATCH!!!')
+        console.error(err.message)
+      }
+
+    }
+
+    const moveIss = () => {
+      setTimeout(()=> {
+        getLocation()
+    }, 5000)}
 
 
-useEffect(()=> {
-  getLocation()
-}, [])
+    useEffect(()=> {
+      getLocation()
 
+    }, [])
 
 
   return(
     <>
-        {mapState}
+      <Map center={[latitude, longitude]} zoom={2}>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[latitude, longitude]} icon={icon}/>
+      </Map>
+      <h3>International Space Station</h3>
+      <p>Live location feed</p>
+      <p>latitude: <span>{latitude}</span> longitude: <span>{longitude}</span></p>
     </>
   )
 }

@@ -1,5 +1,7 @@
 import { Redirect } from 'react-router-dom'
 import MapComponent from '../components/MapComponent'
+import { ReactComponent as IssIcon } from '../assets/ISSicon.svg'
+import style from '../cssModules/issPage.module.css'
 
 const IssLocation = (props) => {
 
@@ -8,8 +10,9 @@ const IssLocation = (props) => {
   }
 
   return(
-    <div>
+    <div className={style.container}>
       <MapComponent/>
+      <div className={style.icon}><IssIcon/></div>
     </div>
   )
 }
