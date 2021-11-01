@@ -9,11 +9,17 @@
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 1rem;
-  box-shadow: 0 0 .3rem var(--moonGray)
+  box-shadow: .2rem .2rem .5rem .05rem var(--moonGray);
+  animation: fadeIn 1s;
 }
 
 img {
   width: 12vw;
   height: 12vw;
   border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
