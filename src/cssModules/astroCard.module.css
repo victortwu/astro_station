@@ -20,8 +20,6 @@
   top: 0;
   left: 0;
   right: 0;
-  /* border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem; */
   border-radius: .2rem;
 }
 
@@ -38,19 +36,39 @@
   border-bottom-right-radius: .2rem;
 }
 
-.upBtn {
+.content1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+}
+
+.dnBtn, .upBtn {
   position: absolute;
+  background: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
   bottom: .5rem;
   right: .5rem;
-  transform: rotateX(.5turn);
+  border-radius: 50%;
+  color: #f75819;
+  opacity: .7;
   z-index: 2;
 }
 
-.dnBtn {
-  position: absolute;
-  bottom: .5rem;
-  right: .5rem;
-  z-index: 2;
+.upBtn {
+  transform: rotateX(.5turn);
+}
+
+.dnBtn:hover, .upBtn:hover {
+  transition: .5s;
+  cursor: pointer;
+  box-shadow: 0 0 .5rem .1rem #f75819;
 }
 
 .craftDown {

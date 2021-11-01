@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import style from '../cssModules/astroCard.module.css'
 
-
-
 const AstroCard = (props) => {
 
   const [expanded, setExpanded] = useState(false)
@@ -17,7 +15,10 @@ const AstroCard = (props) => {
 
       <div className={style.nameCnt}/>
         <div className={style.name}>
-          <h3>Name: {props.name}</h3>
+          <div className={style.content1}>
+            <img src={props.image} alt={props.name} className={style.avatar}/>
+            <h4>{props.name}</h4>
+          </div>
           <button onClick={()=> setExpanded(true)} className={`${style.dnBtn} ${btnVisibility}`}>V</button>
         </div>
 
