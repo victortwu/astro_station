@@ -14,8 +14,10 @@ const MapComponent = () => {
     iconSize: [55, 55]
   })
 
-    const getLocation = async() => {
+    const getLocation = async(quit) => {
+
       try {
+        if ( quit === true ) return
         const res = await fetch('http://api.open-notify.org/iss-now.json')
         const data = await res.json()
 
@@ -32,10 +34,8 @@ const MapComponent = () => {
         moveIss()
       }
       catch(err) {
-        console.log('CATCH!!!')
         console.error(err.message)
       }
-
     }
 
     const moveIss = () => {
@@ -45,8 +45,20 @@ const MapComponent = () => {
 
 
     useEffect(()=> {
-      getLocation()
 
+      let stopFetching = false
+
+      getLocation(stopFetching)
+
+      // not sure if this cleanup is best practice or not
+      // AbortController was either stopping when I didn't want to or
+      // it would hit the catch and throw an error
+      // BUT this does stop the memory leakage warning
+
+      return ()=> {
+        console.log('CLEAN UP CALLED')
+        stopFetching = true
+      }
     }, [])
 
 
