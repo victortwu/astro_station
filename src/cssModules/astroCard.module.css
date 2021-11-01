@@ -1,0 +1,79 @@
+.container {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  margin: 1rem;
+  animation: fadeIn 1.5s;
+}
+
+.name {
+  position: absolute;
+  height: 51%;
+  top: 0;
+  left: 0;
+  right: 0;
+  border: solid blue;
+}
+
+.craft {
+  position: absolute;
+  height: 51%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.upBtn {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  transform: rotateX(.5turn);
+  z-index: 1;
+}
+
+.dnBtn {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  z-index: 1;
+}
+
+.craftDown {
+  animation: down .5s forwards
+}
+
+.craftUp {
+  animation: up .5s forwards
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes down {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
