@@ -6,7 +6,7 @@ const LoginPage = ({children}) => {
     right: '0',
     left: '0',
     bottom: '0',
-    backgroundColor: 'var(--dkPurple)'
+    background: 'radial-gradient(circle at 85%, var(--moonGray), var(--moonLavender), var(--dkMagenta), var(--dkPurple), black)'
   }
 
   const containerStyle = {
@@ -15,19 +15,20 @@ const LoginPage = ({children}) => {
     right: '2rem',
     left: '2rem',
     bottom: '2rem',
-    height: '100vh',
+    height: '60vh',
     backgroundColor: 'rgba(255, 255, 255, .1)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     boxShadow: '0 0 .3rem black',
-    borderRadius: '1rem',
+    borderRadius: '.5rem',
   }
 
   return(
     <div style={backgroundStyle}>
       <div style={containerStyle}>
+        <h1>astro<span style={{color: 'var(--burntOrange)'}}>Space</span></h1>
         <h3 style={{margin: '1rem'}}>Please Log In</h3>
         {children}
       </div>
