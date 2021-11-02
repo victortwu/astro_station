@@ -20,7 +20,6 @@ const astroUrl = process.env.REACT_APP_ASTROURL
 
 
 
-
 function App() {
 console.log(astroUrl)
 const [isLoggedIn, setIsLoggedIn] = useState(false)
