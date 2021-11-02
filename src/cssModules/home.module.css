@@ -1,0 +1,76 @@
+.title {
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s;
+}
+
+.title > h1 > span {
+  color: var(--burntOrange)
+}
+
+.container {
+  padding: 5rem;
+  animation: fadeIn 2s;
+}
+
+.wrapper1, .wrapper2, .wrapper3 {
+  width: 100%;
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper2 {
+  justify-content: flex-end;
+}
+
+.toAstro, .toIss, .toProfile {
+  position: relative;
+  background-color: rgba(255,255,255,.02);
+  backdrop-filter: blur(2px);
+  width: 30vw;
+  height: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .3rem;
+  box-shadow: 0 0 .5rem .01rem var(--moonGray)
+}
+
+.toAstro:hover, .toIss:hover, .toProfile:hover {
+  background-color: rgba(255,255,255,.0);
+  box-shadow: 0 0 .7rem .01rem var(--moonGray);
+  transition: .5s;
+}
+
+.cardTitle {
+  position: absolute;
+  color: white;
+}
+
+.toAstro {
+  animation: pulse 5s alternate infinite;
+}
+
+.toIss {
+  animation: pulse 7s alternate infinite;
+}
+
+.toProfile {
+  animation: pulse 10s alternate infinite;
+}
+
+.icon {
+  width: 18vw;
+  height: 18vw;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@keyframes pulse {
+  0% {transform: scale(1)}
+  100% {transform: scale(1.1)}
+}

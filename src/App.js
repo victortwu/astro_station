@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 //-------- components and pages ---------------
 import Nav from './components/Nav'
 import Profile from './components/Profile'
+import Home from './pages/Home'
 import Astronauts from './pages/Astronauts'
 import IssLocation from './pages/IssLocation'
 import LoginPage from './pages/LoginPage'
@@ -78,7 +79,9 @@ console.log(astronauts)
 
             <Route exact path='/'>
 
-                {isLoggedIn ? <div className='mainWrapper'>HOME</div>
+                {isLoggedIn ? <div className='mainWrapper'>
+                                      <Home/>
+                              </div>
 
                 :  <LoginPage>
                     <GoogleLogin

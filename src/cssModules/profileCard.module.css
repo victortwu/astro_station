@@ -5,12 +5,13 @@
   padding: 2rem;
   width: 60vw;
   height: 60vw;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 1rem;
   box-shadow: .2rem .2rem .5rem .05rem var(--moonGray);
-  
+
 }
 
 .profileImg {

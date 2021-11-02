@@ -67,7 +67,11 @@
   color: var(--moonGray);
 }
 
-
+.links > li:hover {
+  cursor: pointer;
+  color: var(--moonLavender);
+  transition: .5s;
+}
 
 .hamburger {
   position: absolute;
