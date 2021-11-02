@@ -3,6 +3,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import '../App.css'
 
+const issUrl = process.env.REACT_APP_ISSURL
 
 const MapComponent = (props) => {
 
@@ -18,7 +19,7 @@ const MapComponent = (props) => {
 
       try {
         if ( quit === true ) return
-        const res = await fetch('http://api.open-notify.org/iss-now.json')
+        const res = await fetch(issUrl)
         const data = await res.json()
 
         const latStr = await parseFloat(data.iss_position.latitude).toFixed(4)

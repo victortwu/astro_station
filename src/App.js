@@ -16,13 +16,13 @@ import './App.css';
 
 const clientId = process.env.REACT_APP_CLIENTKEY
 
-
+const astroUrl = process.env.REACT_APP_ASTROURL
 
 
 
 
 function App() {
-
+console.log(astroUrl)
 const [isLoggedIn, setIsLoggedIn] = useState(false)
 const [userProfile, setUserProfile] = useState(null)
 const [astronauts, setAstronauts] = useState([])
@@ -51,7 +51,7 @@ const [astronauts, setAstronauts] = useState([])
 
   useEffect(async()=> {
     try {
-      const res = await fetch('http://api.open-notify.org/astros.json')
+      const res = await fetch(astroUrl)
       const data = await res.json()
       setAstronauts(data.people)
     }
