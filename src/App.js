@@ -27,6 +27,7 @@ const [userProfile, setUserProfile] = useState(null)
 const [astronauts, setAstronauts] = useState([])
 
   const responseGoogle = (res) => {
+    console.log(res)
     if (res.profileObj.email !== '') {
       setIsLoggedIn(true)
       setUserProfile(res.profileObj)
