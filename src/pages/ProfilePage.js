@@ -9,9 +9,12 @@ const ProfilePage = ({children, isLoggedIn}) => {
   }
 
   return(
+    <>
+    <div className={style.title}><h1>Profile</h1></div>
     <div className={style.container}>
-      {children}
+        {children}
     </div>
+    </>
   )
 }
 

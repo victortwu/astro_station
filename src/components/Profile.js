@@ -6,11 +6,12 @@ return(
 
     <div className={style.card}>
 
-      <img src={props.userProfile?.imageUrl}/>
+      <img className={style.profileImg} src={props.userProfile?.imageUrl}/>
       <h5>Name: </h5><span>{props.userProfile?.name}</span>
       <h5>email: </h5><span>{props.userProfile?.email}</span>
 
     </div>
+
   )
 }
 

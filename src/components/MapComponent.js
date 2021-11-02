@@ -4,7 +4,7 @@ import { Icon } from 'leaflet'
 import '../App.css'
 
 
-const MapComponent = () => {
+const MapComponent = (props) => {
 
   const [latitude, setLatitude] = useState(0)
   const [longitude, setLongitude] = useState(0)
@@ -71,9 +71,13 @@ const MapComponent = () => {
           />
           <Marker position={[latitude, longitude]} icon={icon}/>
       </Map>
-      <h3>International Space Station</h3>
-      <p>Live location feed</p>
-      <p>latitude: <span>{latitude}</span> longitude: <span>{longitude}</span></p>
+
+      <div >
+          <h3 style={{margin: '.5rem', color: 'var(--moonLavender)'}}>International Space Station</h3>
+          <p style={{margin: '.5rem'}}>Live location feed</p>
+          <p style={{margin: '.5rem'}}>latitude: <span style={{color: 'var(--burntOrange)'}}>{latitude}</span></p>
+          <p style={{margin: '.5rem'}}>longitude: <span style={{color: 'var(--burntOrange)'}}>{longitude}</span></p>
+      </div>
     </>
   )
 }

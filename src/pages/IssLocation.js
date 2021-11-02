@@ -11,6 +11,7 @@ const IssLocation = (props) => {
 
   return(
     <div className={style.container}>
+    <h1>ISS Location</h1>
       <MapComponent/>
       <div className={style.icon}><IssIcon/></div>
     </div>

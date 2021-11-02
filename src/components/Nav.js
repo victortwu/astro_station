@@ -61,7 +61,7 @@ const Nav = props => {
                   </span>
                 </Link>
 
-console.log(props.userProfile?.givenName)
+
   return(
 
     <>

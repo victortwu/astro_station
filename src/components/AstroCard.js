@@ -9,14 +9,14 @@ const AstroCard = (props) => {
 
   const btnVisibility = expanded ? style.hide : ''
 
-  console.log(expandDiv)
+
   return(
     <div className={style.container}>
 
       <div className={style.nameCnt}/>
         <div className={style.name}>
-          <div className={style.content1}>
-            <img src={props.image} alt={props.name} className={style.avatar}/>
+          <div className={style.content}>
+            <img src={props.avatar} alt={props.name} className={style.avatar}/>
             <h4>{props.name}</h4>
           </div>
           <button onClick={()=> setExpanded(true)} className={`${style.dnBtn} ${btnVisibility}`}>V</button>
@@ -25,8 +25,11 @@ const AstroCard = (props) => {
 
       <div className={`${style.craftCnt} ${expandDiv}`}/>
         <div className={`${style.craft} ${expandDiv}`}>
-          <h5>Craft: {props.craft}</h5>
-          <button onClick={()=> setExpanded(false)} className={style.upBtn}>V</button>
+          <div className={style.content}>
+            <h5>Craft: {props.craft}</h5>
+            <img src={props.craftImg} alt={props.craft} className={style.satellite}/>
+            <button onClick={()=> setExpanded(false)} className={style.upBtn}>V</button>
+          </div>
         </div>
 
 
