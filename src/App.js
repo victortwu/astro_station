@@ -18,7 +18,11 @@ const clientId = process.env.REACT_APP_CLIENTKEY
 
 const astroUrl = process.env.REACT_APP_ASTROURL
 
+<<<<<<< HEAD
 //testing
+=======
+// testing testing
+>>>>>>> f2489a5c4f3545db47788ace4c68ef7c5d06ab04
 
 function App() {
 console.log(astroUrl)
