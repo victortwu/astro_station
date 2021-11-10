@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import AstroCard from '../components/AstroCard'
 import style from '../cssModules/astronauts.module.css'

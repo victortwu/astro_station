@@ -18,53 +18,53 @@ const clientId = process.env.REACT_APP_CLIENTKEY
 
 const astroUrl = process.env.REACT_APP_ASTROURL
 
-<<<<<<< HEAD
-//testing
-=======
-// testing testing
->>>>>>> f2489a5c4f3545db47788ace4c68ef7c5d06ab04
+
 
 function App() {
-console.log(astroUrl)
-const [isLoggedIn, setIsLoggedIn] = useState(false)
-const [userProfile, setUserProfile] = useState(null)
-const [astronauts, setAstronauts] = useState([])
 
-  const responseGoogle = (res) => {
-    console.log(res)
-    if (res.profileObj.email !== '') {
-      setIsLoggedIn(true)
-      setUserProfile(res.profileObj)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userProfile, setUserProfile] = useState(null)
+  const [astronauts, setAstronauts] = useState([])
+
+    const responseGoogle = (res) => {
+
+      if (res.profileObj.email !== '') {
+        setIsLoggedIn(true)
+        setUserProfile(res.profileObj)
+      }
     }
-  }
 
 
-  let auth2 = loadAuth2(gapi, clientId)
-  // credit: jasmeet17 from github
-  // https://github.com/anthonyjgrove/react-google-login/issues/130
-  const logout = () => {
-    auth2 = gapi.auth2.getAuthInstance();
-    if (auth2 != null) {
-      auth2.signOut().then(
-           auth2.disconnect().then(console.log('LOGOUT SUCCESSFUL'))
-       )
-       setIsLoggedIn(false)
-       setUserProfile(null)
-     }
-  }
-
-  useEffect(async()=> {
-    try {
-      const res = await fetch(astroUrl)
-      const data = await res.json()
-      setAstronauts(data.people)
+    let auth2 = loadAuth2(gapi, clientId)
+    // credit: jasmeet17 from github
+    // https://github.com/anthonyjgrove/react-google-login/issues/130
+    const logout = () => {
+      auth2 = gapi.auth2.getAuthInstance();
+      if (auth2 != null) {
+        auth2.signOut().then(
+             auth2.disconnect().then(console.log('LOGOUT SUCCESSFUL'))
+         )
+         setIsLoggedIn(false)
+         setUserProfile(null)
+       }
     }
-    catch(err) {
-      console.error(err.message)
-    }
-  }, [])
 
-console.log(astronauts)
+    useEffect(()=> {
+      const getAstronauts = async() => {
+        try {
+          const res = await fetch(astroUrl)
+          const data = await res.json()
+          setAstronauts(data.people)
+        }
+        catch(err) {
+          console.error(err.message)
+        }
+      }
+      getAstronauts()
+
+    }, [])
+
+
   return (
     <Router>
 

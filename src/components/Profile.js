@@ -6,7 +6,7 @@ return(
 
     <div className={style.card}>
 
-      <img className={style.profileImg} src={props.userProfile?.imageUrl}/>
+      <img className={style.profileImg} src={props.userProfile?.imageUrl} alt='no photo'/>
       <h5>Name: </h5><span>{props.userProfile?.name}</span>
       <h5>email: </h5><span>{props.userProfile?.email}</span>
 
