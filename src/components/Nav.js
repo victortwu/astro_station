@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../styleSheets/nav.css'
+import style from '../cssModules/nav.module.css'
 
 const Nav = props => {
 
@@ -15,7 +16,7 @@ const Nav = props => {
       setDropLinks(!dropLinks)
   }
 
-  const toggleNavClass = dropLinks ? 'showMenu' : 'hideMenu'
+  const toggleNavClass = dropLinks ? style.showMenu : style.hideMenu
 
   const home = <Link to='/'>
                   <span onClick={
@@ -65,24 +66,24 @@ const Nav = props => {
   return(
 
     <>
-    <nav className='navBar'>
+    <nav className={style.navBar}>
 
-      <h4 className='welcomeName'>Welcome {props.userProfile?.givenName}</h4>
+      <h4 className={style.welcomeName}>Welcome {props.userProfile?.givenName}</h4>
 
-      <div ref={hamburgerButton} className='hamburger' onClick={()=> {
+      <div ref={hamburgerButton} className={style.hamburger} onClick={()=> {
         toggleDropDown()
         spinHamburger()
       }}>
           {
             dropLinks ?
-              <div id='xBurger'>
-                <div id='xLine1'/>
-                <div id='xLine2'/>
+              <div id={style.xBurger}>
+                <div id={style.xLine1}/>
+                <div id={style.xLine2}/>
               </div>
             :  <>
-              <div id='hamburgerLine'/>
-              <div id='hamburgerLine'/>
-              <div id='hamburgerLine'/>
+              <div id={style.hamburgerLine}/>
+              <div id={style.hamburgerLine}/>
+              <div id={style.hamburgerLine}/>
               </>
           }
       </div>
@@ -91,8 +92,8 @@ const Nav = props => {
     <div onClick={()=> {setDropLinks(false)
                         spinHamburger()}} className={toggleNavClass}>
 
-        <div onClick={(e)=> e.stopPropagation()} className='menuBody'>
-          <ul className='links'>
+        <div onClick={(e)=> e.stopPropagation()} className={style.menuBody}>
+          <ul className={style.links}>
 
               <li>{home}</li>
               <li>{astroLink}</li>
