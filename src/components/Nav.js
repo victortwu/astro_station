@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../styleSheets/nav.css'
-import style from '../cssModules/nav.module.css'
+//import style from '../cssModules/nav.module.css'
 
 const Nav = props => {
 
@@ -16,7 +16,7 @@ const Nav = props => {
       setDropLinks(!dropLinks)
   }
 
-  const toggleNavClass = dropLinks ? style.showMenu : style.hideMenu
+  const toggleNavClass = dropLinks ? 'showMenu' : 'hideMenu'
 
   const home = <Link to='/'>
                   <span onClick={
@@ -66,24 +66,24 @@ const Nav = props => {
   return(
 
     <>
-    <nav className={style.navBar}>
+    <nav className='navBar'>
 
-      <h4 className={style.welcomeName}>Welcome {props.userProfile?.givenName}</h4>
+      <h4 className='welcomeName'>Welcome {props.userProfile?.givenName}</h4>
 
-      <div ref={hamburgerButton} className={style.hamburger} onClick={()=> {
+      <div ref={hamburgerButton} className='hamburger' onClick={()=> {
         toggleDropDown()
         spinHamburger()
       }}>
           {
             dropLinks ?
-              <div id={style.xBurger}>
-                <div id={style.xLine1}/>
-                <div id={style.xLine2}/>
+              <div id='xBurger'>
+                <div id='xLine1'/>
+                <div id='xLine2'/>
               </div>
             :  <>
-              <div id={style.hamburgerLine}/>
-              <div id={style.hamburgerLine}/>
-              <div id={style.hamburgerLine}/>
+              <div id='hamburgerLine'/>
+              <div id='hamburgerLine'/>
+              <div id='hamburgerLine'/>
               </>
           }
       </div>
@@ -92,8 +92,8 @@ const Nav = props => {
     <div onClick={()=> {setDropLinks(false)
                         spinHamburger()}} className={toggleNavClass}>
 
-        <div onClick={(e)=> e.stopPropagation()} className={style.menuBody}>
-          <ul className={style.links}>
+        <div onClick={(e)=> e.stopPropagation()} className='menuBody'>
+          <ul className='links'>
 
               <li>{home}</li>
               <li>{astroLink}</li>
