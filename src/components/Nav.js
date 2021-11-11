@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { ReactComponent as Logo } from '../assets/ISSicon.svg'
 import '../styleSheets/nav.css'
 
 
@@ -21,7 +22,6 @@ const Nav = props => {
         setDropLinks(true)
         menuBodyRef.current.style = 'animation: dropMenu .3s'
       }
-
   }
 
   const toggleNavClass = dropLinks ? 'showMenu' : 'hideMenu'
@@ -77,6 +77,10 @@ const Nav = props => {
 
     <>
     <nav className='navBar'>
+
+      <Link to='/'>
+          <div className='logoDiv'><Logo/></div>
+      </Link>
 
       <h4 className='welcomeName'>Welcome {props.userProfile?.givenName}</h4>
 

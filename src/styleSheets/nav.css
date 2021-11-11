@@ -11,6 +11,13 @@
   animation: fadeIn 1s;
 }
 
+.logoDiv {
+  position: absolute;
+  left: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .welcomeName {
   width: 100%;
   display: flex;
