@@ -42,14 +42,14 @@
 }
 
 .avatar {
-  width: 8vw;
-  height: 8vw;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
 }
 
 .satellite {
-  width: 14.5vw;
-  height: 9.5vw;
+  width: 8rem;
+  height: 5rem;
   border-radius: .5rem;
 }
 
