@@ -74,3 +74,18 @@
   0% {transform: scale(1)}
   100% {transform: scale(1.1)}
 }
+
+@media only screen and (max-width: 500px) {
+  .wrapper1, .wrapper2, .wrapper3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .toAstro, .toIss, .toProfile {
+    width: 16rem;
+    height: 16rem;
+  }
+
+}
