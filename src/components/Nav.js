@@ -1,22 +1,32 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../styleSheets/nav.css'
-//import style from '../cssModules/nav.module.css'
+
 
 const Nav = props => {
 
   const [dropLinks, setDropLinks] = useState(false)
   const hamburgerButton = useRef(null)
+  const menuBodyRef = useRef(null)
 
   const spinHamburger =()=> {
-    hamburgerButton.current.style = dropLinks ? 'animation: spinX .5s' : 'animation: spinE .5s'
+    hamburgerButton.current.style = dropLinks ? 'animation: spinX .3s' : 'animation: spinE .3s'
   }
 
   const toggleDropDown = () => {
-      setDropLinks(!dropLinks)
+      if ( dropLinks ) {
+        menuBodyRef.current.style = 'animation: retractMenu .3s'
+        setTimeout(() => {setDropLinks(false)}, 300)
+      } else {
+        setDropLinks(true)
+        menuBodyRef.current.style = 'animation: dropMenu .3s'
+      }
+
   }
 
   const toggleNavClass = dropLinks ? 'showMenu' : 'hideMenu'
+
+
 
   const home = <Link to='/'>
                   <span onClick={
@@ -89,10 +99,10 @@ const Nav = props => {
       </div>
     </nav>
 
-    <div onClick={()=> {setDropLinks(false)
+    <div onClick={()=> {toggleDropDown()
                         spinHamburger()}} className={toggleNavClass}>
 
-        <div onClick={(e)=> e.stopPropagation()} className='menuBody'>
+        <div ref={menuBodyRef} onClick={(e)=> e.stopPropagation()} className='menuBody'>
           <ul className='links'>
 
               <li>{home}</li>

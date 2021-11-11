@@ -41,7 +41,6 @@
   width: 12rem;
   border-radius: .2rem;
   box-shadow: 0 0 1rem gray;
-  animation: dropMenu .5s;
   z-index: 101;
 }
 
@@ -138,6 +137,17 @@ a {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes retractMenu {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3rem);
   }
 }
 
