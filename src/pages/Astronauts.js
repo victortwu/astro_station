@@ -12,10 +12,10 @@ const Astronauts = (props) => {
   if (!props.isLoggedIn) {
     return <Redirect to='/'/>
   }
-
+  //console.log(props.astronauts)
   return(
     <div className={style.container}>
-        <div className={style.title}><h1>Astronuats in <span>Space</span></h1></div>
+        <div className={style.title}><h1>Astronauts in <span>Space</span></h1></div>
 
         <div className={style.cards}>
 
@@ -29,9 +29,9 @@ const Astronauts = (props) => {
               } else {
                 avatar = avatar3
               }
-
+            //console.log(avatar)
             const craftImg = (astro.craft === 'ISS') ? issImg : sheng13
-
+            //console.log(craftImg)
             return(
               <div key={i + astro.name}>
               <AstroCard

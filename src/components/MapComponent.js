@@ -19,15 +19,15 @@ const MapComponent = (props) => {
 
       try {
         if ( quit === true ) return
-        const res = await fetch(issUrl)
-        const data = await res.json()
-
-        const latStr = await parseFloat(data.iss_position.latitude).toFixed(4)
-        const longStr = await parseFloat(data.iss_position.longitude).toFixed(4)
+        const res = await fetch(issUrl) //.then(res=> )
+        const data = await res.json() // .then
+        //console.log(data)
+        const latStr = parseFloat(data.iss_position.latitude).toFixed(4)
+        const longStr = parseFloat(data.iss_position.longitude).toFixed(4)
 
         const lat = parseFloat(latStr)
         const long = parseFloat(longStr)
-
+        //console.log(`Lat: ${lat}, Long: ${long}`)
         setLatitude(lat)
 
         setLongitude(long)
@@ -35,7 +35,7 @@ const MapComponent = (props) => {
         moveIss()
       }
       catch(err) {
-        console.error(err.message)
+        console.error(err.message) //this is a global catch
       }
     }
 

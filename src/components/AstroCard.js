@@ -9,7 +9,7 @@ const AstroCard = (props) => {
 
   const btnVisibility = expanded ? style.hide : ''
 
-
+  
   return(
     <div className={style.container}>
 

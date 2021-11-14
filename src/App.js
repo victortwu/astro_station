@@ -28,7 +28,7 @@ function App() {
   const [astronauts, setAstronauts] = useState([])
 
     const responseGoogle = (res) => {
-
+      //console.log(res)
       if (res.profileObj.email !== '') {
         setIsLoggedIn(true)
         setUserProfile(res.profileObj)
@@ -54,6 +54,7 @@ function App() {
       const getAstronauts = async() => {
         try {
           const res = await fetch(astroUrl)
+          //console.log(res)
           const data = await res.json()
           setAstronauts(data.people)
         }
@@ -65,7 +66,7 @@ function App() {
 
     }, [])
 
-
+  //console.log(userProfile)
   return (
     <Router>
 
